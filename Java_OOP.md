@@ -185,3 +185,4 @@
 > private : 변수가 선언된 클래스 내에서만 접근이 가능
 
 > **Access Modifier**
+![access_modifier](./스크린샷 2020-01-16 03.00.58.png)
