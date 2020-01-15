@@ -185,10 +185,8 @@
 > private : 변수가 선언된 클래스 내에서만 접근이 가능
 
 > **Access Modifier**
-![access_modifier](access_modifier.png)
 
-[출처] https://swexpertacademy.com
-
+- 검색해서 
 
 ### Getter / Setter 메서드 자동 구현
 
@@ -203,3 +201,146 @@
 2. Generate toString 선택
 3. 실행
 4. 객체상태를 쉽게 확인할 수 있다.
+
+
+## 클래스 변수
+
+### 클래스 변수가 필요한 이유
+
+**클래스변수**
+1. 인스턴스변수는 클래스에 멤버변수를 생성할 때마다 그 안에 클래스의 인스턴수 변수들이 포함됨 메모리가 할당되어 손해를 볼 수 있다.
+2. static변수는 static 클래스에서 접근할 수 있다.
+
+> 수만개의 인스턴스 변수선언시 중복된 값들은 메모리가 불필요하게 사용된다.
+```
+  class Employee{
+    String name;
+    int number;
+    static String company = '회사이름';
+   }
+   
+```
+> 클래스 변수는 객체를 생성하지 않고도 접근이 가능하다.
+> 클래스 메서드는 인스턴스 변수를 사용할 수 없다.
+> - 인스턴스 변수는 인스턴스를 생성해야만 메모리가 잡히기 때문에 클래스 메서드에서 사용이 불가능함
+> 클래스 메서드에서는 클래스 변수만 사용할 수 있다.
+
+```
+  class Dice {
+    public static int dotCount = 5;
+    public int rollingCount = 0;
+    
+    public static void playGame() {
+      dotCount++; //클래스 변수로 선언된 dotCount변수는 playGame()메서드에서 접근 가능
+      rollingCount++; //인스턴스 변수로 선언된 변수기 때문에 클래스 변수 접근 불가
+      System.out.println("생성된 숫자 : " + rollingDice()); //같은 이유로 호출 불가
+    }
+    public int rollingDice(){
+      int generatedNum = (int)(Math.random() * 6) + 1;
+      return generatedNum;
+    }
+    
+  }
+  public class StaticMethodTest {
+    public static void main(String[] args){
+      Dice.playGame();
+    }
+  }
+```
+
+### final 예약어 사용
+
+- final예약어 변수는 변수를 상수로 사용하기 때문에 한번 선언하면 변경할 수 없다.
+
+> 클래스로부터 생성된 모든 객체들이 동일한 값을 가지는 경우
+> 공통된 값을 가지는 변수를 클래스 변수로 선언하여 메모리를 효율적으로 사용할 수 있다.
+> 하지만 클래스 변수의 값을 변경할 수 있도록 허용하는 경우 static 예약어의 의미가 상실되므로
+> final 예약어를 결합하여 사용함으로써 초기화된 값을 변경할 수 없게 해야함
+
+- final 예약어를 사용하여 변수 선언시 인스턴스변수와 구별하기 위해 대문자를 사용한다.
+- final 예약어를 사용함으로서 자식 클래스에서의 메서드 재정의를 막을 수도 있다. 사실상 상속 금지
+
+### abstract 추상메서드
+
+- 메서드의 시그니처만 정의되고 구체적인 행위, 즉 블록부분은 정의되지 않는 메서드를 의미함
+
+```
+  returnType name([argType argName, ...]){...} // 일반메서드
+  abstract returnType name([argType argName, ...]); // 추상메서드
+```
+
+- 추상메서드를 포함한 메서드는 반드시 추상 클래스로 선언되어야함!!!
+
+**문제발생**
+```
+  abstract class SuperClass {
+    public void methodA() {
+      System.out.println("methodA() 실행");
+    }
+    public abstract void methodB();
+  }
+class SubClass extends SuperClass{ //부모로 부터 상속
+  }
+```
+
+**문제해결**
+```
+  abstract class SuperClass {
+    public void methodA() {
+      System.out.println("methodA() 실행");
+    }
+    public abstract void methodB();
+  }
+  class SubClass extends SuperClass{ //부모로 부터 상속
+    public void methodB() { //자식클래스가 추상클래스를 재정의 함
+      System.out.println("methodB() 실행");
+    }
+  }
+```
+
+## 생성자
+- 클래스로부터 객체를 생성할 때 호출되며, 객체의 멤버변수를 초기화하는데 사용되는 메서드
+- 객체를 생성할 때 객체에 필요한 값들을 초기화하는 개념은 배열과 동일
+
+```
+  int[] scoreList = new int[5];
+  scoreList = {89, 90, 91, 92, 93};
+```
+
+> 단순히 객체 생성만 하는 것이 프로그램관점에서 의미가 없으므로
+> 필요한 값으로 채워 넣으면서 생성자를 만들어주는 것이 필요
+
+> 생성자를 이용하면 복잡한 작업을 한 줄로 처리 가능함
+
+```
+  class Employee{
+    String name;
+    int number;
+    int age;
+    String title;
+    String dept;
+    String grade;
+  }
+  
+  Employee kim = new Employee("박준영", 12345, 39, "과장", "개발부", "A++");
+```
+
+### 기본 생성자
+- 클래스에 생성자가 하나도 작성되지 않았을때 자동으로 만들어 지는 생성자.
+
+### this의 의미
+
+- 생성자나 메서드의 매개변수 이름이 객체 변수의 이름과 같다면 구별이 가지 않는다.
+- 객체 변수이름 앞에 this를 사용하여 구별이 가능하다.
+
+```
+  public class Employee{
+    String name;
+    int number;
+    
+    public Employee(String name, int age){
+      this.name = name;
+      age = age;
+    }
+  }
+```
