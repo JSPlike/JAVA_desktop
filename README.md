@@ -144,5 +144,16 @@
   }
  ```
  
+ ### 명령형 매개변수 (배열로 입력)
+ 
+ > public static void(String args[]) //String 배열을 명령형 매개변수로 받는다.
+ 
+ ```
+  // parseInt() 등의 내장함수를 이용하여 숫자형도 사용할 수 있도록 만들어아한다.
+  int a = Inteager.parseInt(10);
+  double b = Inteager.parseDouble(20.0);
+  
+  
+ ```
  
  
