@@ -223,3 +223,38 @@
       break;
   }
 ```
+
+### 반복 제어문
+
+1. for문
+> for(초기식; 조건식; 증감식){
+  Statement1;
+  }
+  Statement2;
+  
+- for블럭내에 선언된 변수는 블럭안에서만 사용할 수 있다.
+
+```
+  for(int i = 0;i < 10;i++)
+    System.out.println(i + '\n');
+```
+
+### 이동 제어문
+- return문
+
+```
+  public class FirstApp {
+    public static void main(String[] args) {
+      int[] list = {1,2,3,4,5,6,7,8,9,10};
+      double result = cal(list);
+      System.out.println("리스트안의 숫자평균은 " + result + "입니다.");
+    }
+    public static double cal(int[] list) {
+      int sum = 0;
+      for(int i=0;i<list.length;i++) {
+        sum += list[i];
+      }
+      return (double)sum/list.length;	
+    }
+  } 
+```
