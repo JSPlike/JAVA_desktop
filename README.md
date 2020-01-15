@@ -156,4 +156,70 @@
   
  ```
  
+ ## 자바의 제어문
  
+ ### 조건 제어문
+ - 조건에 따라 선택적으로 문장이 수행되는 분기문을 수행할 수 있다.
+ 
+ 1. if-else문
+ 
+ ```
+  int num = 10;
+  if((num % 2) == 0) {
+    //num이 짝수일때 해당 문장 출력
+    System.out.println(num + "은 짝수입니다.");
+  }
+  else
+    //num이 홀수일때 해당 문장 출력
+    System.out.println(num + "은 홀수입니다.");
+ ```
+
+2. if-else if문
+- 여러조건을 순차적으로 비교할 수 있다.
+
+```
+  // 매개변수로 받은 정수를 int형으로 형변환
+  int month = Integer.parseInt(args[0]);
+  if(month == 3 || month == 4 || month == 5)
+    System.out.println("해당 월은 봄입니다.");
+  else if(month == 6 || month == 7 || month == 8)
+    System.out.println("해당 월은 여름입니다.");
+  else if(month == 9 || month == 10 || month == 11)
+    System.out.println("해당 월은 가을입니다.");
+  else if(month == 12 || month == 1 || month == 2)
+    System.out.println("해당 월은 겨울입니다.");
+  else
+    System.out.println("잘못된 월을 입력했습니다.);
+```
+
+3. switch문
+- if조건문을 switch문으로 변경하여 사용할 수 있다.
+
+```
+  int month = Integer.parseInt(args[0]);
+  switch(month){
+    case 3:
+    case 4:
+    case 5:
+      System.out.println("해당 월은 봄입니다.");
+      break;
+    case 6:
+    case 7:
+    case 8:
+      System.out.println("해당 월은 여름입니다.");
+      break;
+    case 9:
+    case 10:
+    case 11:
+      System.out.println("해당 월은 가을입니다.");
+      break;
+    case 12:
+    case 1:
+    case 2:
+      System.out.println("해당 월은 겨울입니다.");
+      break;
+    default:
+      System.out.println("잘못된 월을 입력하였습니다.);
+      break;
+  }
+```
