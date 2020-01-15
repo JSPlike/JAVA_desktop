@@ -46,3 +46,33 @@
 > - 공통규정이 바뀐다면 각각의 규정을 모두 가져와서 수정해주어야 하는 문제점이 발생한다.
 > - 이때 상속을 통해서 프로그램이 작성되어 있다면 가장 상위 클래스의 코드를 수정함으로서 빠르게 문제를 해결할 수 있다.
 
+
+- **결론** : 코드를 간결하게하고 재사용성을 늘릴 수 있다.
+
+**Car.java**
+```
+  public class Car{
+    //멤버변수 선언
+    String name;
+    int currentGear;
+    //멤버함수 작성
+    void changeGrear(int gear){
+      System.out.println("-> 기어를 " + gear + "단으로 변경");
+      currentGear = gear;
+    }
+    String getCurrentState() {
+      return name + "의 현재 기어 : " + currentGear;
+    }
+  }
+```
+
+**Taxi.java**
+```
+  //extends를 사용하여 상속받을 수 있다.
+  public class Taxi extends Car{
+    int fare;
+    boolean passengerYn;
+  }
+  
+```
+> 상속을 받은 클래스는 부모클래스의 변수와 메서드를 사용할 수 있다.
