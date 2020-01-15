@@ -188,3 +188,18 @@
 ![access_modifier](access_modifier.png)
 
 [출처] https://swexpertacademy.com
+
+
+### Getter / Setter 메서드 자동 구현
+
+**MAC 기준**
+1. 이클립스에서 command + alt + s 입력
+2. Generate Getters and Setters 선택
+3. 변수 선택
+4. Getters 또는 Setters 선택 (둘다도 가능)
+
+### toString()
+1. 이클립스에서 command + alt + s 입력
+2. Generate toString 선택
+3. 실행
+4. 객체상태를 쉽게 확인할 수 있다.
