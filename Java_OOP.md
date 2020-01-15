@@ -132,3 +132,56 @@
     }
   }
 ```
+-----
+
+## 클래스의 구조
+
+> 클래스는 클래스의 선언부와 몸체로 나누어 진다.
+
+> 1. 클래스 선언
+> 2. 멤버 선언
+> 3. 생성자
+> 4. 메서드
+
+1. 접근권한 예약어
+- public, protected, private, (default)
+
+> **UML개념**
+> 소프트웨어 개념을 다이어그램으로 그리기 위해 사용하는 시각적 표기법
+> 객체지향 프로그램을 시각화하여 보여주기 위해 사용
+
+
+### 객체 생성
+
+```
+  class Car{
+    String name;
+    int speed;
+  }
+
+  public class oop {
+    public static void main(String[] args) {
+      Car Yellow = new Car();
+      Yellow.name = "Lighting Yellow";
+      Yellow.speed = 300;
+      System.out.println(Yellow.name + " " + Yellow.speed);
+
+      Car Red = new Car();
+      Red.name = "Red";
+      Red.speed = 500;
+      System.out.println(Red.name + " " + Red.speed);
+    }
+  }
+```
+
+### 전역변수와 지역변수
+
+- 전역변수 : 클래스 선언부 밑에 선언된 변수로 여러 메서드에서 공통으로 사용가능
+- 지역변수 : 메서드 선언부 및에 선언된 변수로 해당 클래스에서만 사용가능
+
+**접근권한**
+> public : 모든 클래스에서 접근가능
+> protected : 동일 패키지에 속하는 클래스와 하위 클래스 관계의 클래스에 의해 접근 가능
+> private : 변수가 선언된 클래스 내에서만 접근이 가능
+
+> **Access Modifier**
