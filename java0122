@@ -1,0 +1,7 @@
+
+JDK;;
+
+javac Hello.java 를 이용해 컴파일한다.
+> Hello.class가 생성된다.
+
+java Hello로 실행
