@@ -9,3 +9,12 @@
 ### 자바 객체
 
 오버로드 : 함수의 이름은 같고 인자가 서로 다른 함수를 생성한다.
+
+default Constructor!
+```
+ class Profile(){
+  Profile(){}
+ }
+ Profile(String name, int no, boolean gendor, int age){
+ }
+```
