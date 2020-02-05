@@ -18,3 +18,8 @@ default Constructor!
  Profile(String name, int no, boolean gendor, int age){
  }
 ```
+
+### this
+
+> this는 메소드 안에서만 사용할 수 있으며,,
+> this가 가리키는 메소드는 this이다.
